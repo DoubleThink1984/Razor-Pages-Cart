@@ -1,0 +1,139 @@
+﻿@page
+@model RazorPagesCart.Areas.Administrator.Pages.Products.CreateModel
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h2>Create</h2>
+
+<form method="post" enctype="multipart/form-data" class="fileUpload">
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="form-group">
+            <label asp-for="Product.ProductCode" class="control-label"></label>
+            <input asp-for="Product.ProductCode" class="form-control" />
+            <span asp-validation-for="Product.ProductCode" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.ProductName" class="control-label col-md-2"></label>
+            <input asp-for="Product.ProductName" />
+            <span asp-validation-for="Product.ProductName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.ClassID" class="control-label col-md-2"></label>
+            <select asp-for="Product.ClassID" asp-items="Model.Categories" class="form-control">
+                <option value="">
+                    -- Select Product Category --
+                </option>
+            </select>
+            <span asp-validation-for="Product.ClassID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.ShortDescription" class="control-label col-md-2"></label>
+            <input asp-for="Product.ShortDescription" />
+            <span asp-validation-for="Product.ShortDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.LongDescription" class="control-label col-md-2"></label>
+            <textarea asp-for="Product.LongDescription"></textarea>
+            <span asp-validation-for="Product.LongDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.Quantity" class="control-label col-md-2"></label>
+            <input asp-for="Product.Quantity" />
+            <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.MSRP" class="control-label col-md-2"></label>
+            <input asp-for="Product.MSRP" type="number" />
+            <span asp-validation-for="Product.MSRP" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.Price" class="control-label col-md-2"></label>
+            <input asp-for="Product.Price" type="number" />
+            <span asp-validation-for="Product.Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.WildmanPrice" class="control-label col-md-2"></label>
+            <input asp-for="Product.WildmanPrice" type="number" />
+            <span asp-validation-for="Product.WildmanPrice" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.Length" class="control-label col-md-2"></label>
+            <input asp-for="Product.Length" type="number" />
+            <span asp-validation-for="Product.Length" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.Width" class="control-label col-md-2"></label>
+            <input asp-for="Product.Width" type="number" />
+            <span asp-validation-for="Product.Width" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.Height" class="control-label col-md-2"></label>
+            <input asp-for="Product.Height" type="number" />
+            <span asp-validation-for="Product.Height" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.ParcelPost" class="control-label col-md-2"></label>
+            <input asp-for="Product.ParcelPost" type="checkbox" />
+            <span asp-validation-for="Product.ParcelPost" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.InactiveProduct" class="control-label col-md-2"></label>
+            <input asp-for="Product.InactiveProduct" type="checkbox" />
+            <span asp-validation-for="Product.InactiveProduct" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.NoBackOrders" class="control-label col-md-2"></label>
+            <input asp-for="Product.NoBackOrders" type="checkbox" />
+            <span asp-validation-for="Product.NoBackOrders" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.LimitOne" class="control-label col-md-2"></label>
+            <input asp-for="Product.LimitOne" type="checkbox" />
+            <span asp-validation-for="Product.LimitOne" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.New" class="control-label col-md-2"></label>
+            <input asp-for="Product.New" type="checkbox" />
+            <span asp-validation-for="Product.New" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.KeepInventory" class="control-label col-md-2"></label>
+            <input asp-for="Product.KeepInventory" type="checkbox" />
+            <span asp-validation-for="Product.KeepInventory" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.SpecialOrder" class="control-label col-md-2"></label>
+            <input asp-for="Product.SpecialOrder" type="checkbox" />
+            <span asp-validation-for="Product.SpecialOrder" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.FeaturedProduct" class="control-label col-md-2"></label>
+            <input asp-for="Product.FeaturedProduct" type="checkbox" />
+            <span asp-validation-for="Product.FeaturedProduct" class="text-danger"></span>
+        </div>
+        <label asp-for="MyFormFile" class="control-label col-md-2">Upload Image/Images</label>
+        <div class="form-group">
+            <input asp-for="MyFormFile" type="file" multiple accept="image/*" class="btn btn-default btn-file fileUpload" />
+            <span asp-validation-for="MyFormFile" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

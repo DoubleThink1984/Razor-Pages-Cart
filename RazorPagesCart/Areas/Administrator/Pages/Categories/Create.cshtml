@@ -1,0 +1,54 @@
+﻿@page
+@model RazorPagesCart.Areas.Administrator.Pages.Categories.CreateModel
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+<form method="post" enctype="multipart/form-data" class="fileUpload">
+    <div class="form-horizontal">
+        <h4>Category</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="form-group">
+            <label asp-for="ClassName" class="control-label"></label>
+            <input asp-for="ClassName" class="form-control" />
+            <span asp-validation-for="ClassName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentClassID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="ParentClassID" asp-items="Model.ParentCategories">
+                    <option value="">-- Make Main Category --</option>
+                </select>
+                <span asp-validation-for="ParentClassID"></span>
+            </div>            
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <label asp-for="MyFormFile" class="control-label col-md-2"></label>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <input type="file" asp-for="MyFormFile" accept="image/*" class="btn btn-default fileUpload" />
+                <span asp-validation-for="MyFormFile"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts{ 
+    <partial name="_ValidationScriptsPartial" />
+}

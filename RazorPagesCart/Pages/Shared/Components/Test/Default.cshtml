@@ -1,0 +1,10 @@
+﻿@model Dictionary<int, string>
+
+<h3>Priority Items</h3>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Key : @item.Value</li>
+    }
+</ul>

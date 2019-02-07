@@ -1,0 +1,61 @@
+﻿@page
+@model RazorPagesCart.Areas.Administrator.Pages.Categories.IndexModel
+@{
+    ViewData["Title"] = "Categories";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            ID
+        </th>
+        <th>
+            Parent Id
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Image Url
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Categories)
+    {
+        <tr>
+            @if (!item.ParentClassID.HasValue)
+            {
+                <td>
+                    <strong><u>@Html.DisplayFor(modelItem => item.ClassName)</u></strong>
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentClassID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ClassId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ClassId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ClassId })*@
+            </td>
+        </tr>
+    }
+</table>

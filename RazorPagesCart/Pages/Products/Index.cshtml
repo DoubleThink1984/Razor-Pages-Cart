@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPagesCart.Pages.Products.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<ul>
+    <li>
+        @foreach (var product in Model.AllProducts)
+        {
+            <h3>@product.ProductName</h3>
+            <h4>@product.ShortDescription</h4>
+            <h5>@product.LongDescription</h5>
+        }
+    </li>
+</ul>

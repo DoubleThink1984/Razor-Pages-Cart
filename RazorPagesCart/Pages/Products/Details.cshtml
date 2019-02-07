@@ -1,0 +1,14 @@
+﻿@page "{id:int}"
+@model RazorPagesCart.Pages.Products.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Product.ProductName</h1>
+<h2>@Model.Product.ShortDescription</h2>
+<h3>@Model.Product.LongDescription</h3>
+<h4>@Model.Product.MSRP>.Value.ToString("c")</h4>
+<h5>@Model.Product.Quantity</h5>
+<h6>
+    <img src="@Url.Content(Model.Product.ProductImages.FirstOrDefault()?.Path)" asp-append-version="true" class="img-thumbnail" /> 
+</h6>
